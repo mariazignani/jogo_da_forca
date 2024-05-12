@@ -2,9 +2,9 @@ import os
 import random as rnd
 os.system('cls')
 
-lista_frutas = ['morango', 'pitaya', 'melancia', 'banana', 'abacaxi']
-lista_animais = ['cachorro', 'gato', 'girafa', 'esquilo', 'serpente']
-lista_cores = ['vermelho', 'azul', 'amarelo', 'preto', 'verde']
+lista_frutas = ['morango', 'pitaya', 'melancia', 'framboesa', 'abacaxi']
+lista_animais = ['cachorro', 'grilo', 'girafa', 'esquilo', 'serpente']
+lista_cores = ['vermelho', 'cinza', 'amarelo', 'preto', 'ciano']
 
 def desenhar_hangman():
     
