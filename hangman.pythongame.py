@@ -2,9 +2,9 @@ import os
 import random as rnd
 os.system('cls')
 
-lista_frutas = ['morango', 'pitaya', 'melancia', 'framboesa', 'abacaxi']
-lista_animais = ['cachorro', 'grilo', 'girafa', 'esquilo', 'serpente']
-lista_cores = ['vermelho', 'cinza', 'amarelo', 'preto', 'ciano']
+lista_frutas = ['morango', 'pitaya', 'melancia', 'banana', 'abacaxi']
+lista_animais = ['cachorro', 'gato', 'girafa', 'esquilo', 'serpente']
+lista_cores = ['vermelho', 'azul', 'amarelo', 'preto', 'verde']
 
 def desenhar_hangman():
     
@@ -87,6 +87,15 @@ def desenhar_hangman():
         print('     / \    |')
         print('          ---')
 
+def obter_input_sem_repeticao(letras_usuario):
+    while True:
+        tentativa = input("Entre com uma letra: ").lower()
+        if tentativa in letras_usuario:
+            print("Letra repetida! Tente novamente.")
+        else:
+            letras_usuario.append(tentativa)
+            return tentativa
+
 while True:
 
     lista = [lista_frutas, lista_animais, lista_cores]
@@ -114,7 +123,7 @@ while True:
             print('CORES')
         
         desenhar_hangman()
-        
+
         for letra in palavra:
             
             if letra.lower() in letras_usuario:
@@ -129,11 +138,9 @@ while True:
         
         print('HISTÓRICO DE LETRAS:', letras_usuario)    
         
-        tentativa = input("Escolha uma letra: ")
-
-        letras_usuario.append(tentativa.lower())
-
-        if tentativa.lower() not in palavra.lower():
+        tentativa = obter_input_sem_repeticao(letras_usuario)
+            
+        if tentativa not in palavra.lower():
 
             chances -= 1
 
@@ -143,13 +150,12 @@ while True:
 
             if letra.lower() not in letras_usuario:
 
-                ganhou = False
-
+                ganhou = False 
+             
         if chances == 0 or ganhou:
             os.system('cls')
             break
     
-
     if ganhou:
             print(f"Parabéns, você ganhou! A palavra era {palavra}")
 
